@@ -1,0 +1,54 @@
+﻿@using Tp02.Models
+@page "/ListaPersona"
+@code {
+   
+} 
+
+<h3>ListaPersonas</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre Completo</th>
+            <th>Email</th>
+            <th>Domicilio</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Imagen</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var persona in personas)
+        {
+            <tr>
+                <td>@persona.Id</td>
+                <td>@persona.NombreCompleto</td>
+                <td>@persona.Email</td>
+                <td>@persona.Domicilio</td>
+                <td>@persona.FechaNacimiento.ToShortDateString()</td>
+                <td><img src="@persona.RutaImagen" alt="Imagen de @persona.NombreCompleto" width="100" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@code {
+    private List<Persona> personas;
+
+    protected override void OnInitialized()
+    {
+        personas = new List<Persona>
+        {
+            new Persona { Id = 1, NombreCompleto = "Elias Schiel", Email = "elias.schiel@ites.com", Domicilio = "Calle 123", FechaNacimiento = new DateTime(1997, 5, 15), RutaImagen = "/images/example.jpg" },
+            new Persona { Id = 2, NombreCompleto = "Pablo Martínez", Email = "pablo.martinez@ites.com", Domicilio = "Avenida 456", FechaNacimiento = new DateTime(1985, 8, 20), RutaImagen = "/images/example.jpg" },
+            new Persona { Id = 3, NombreCompleto = "Carlos López", Email = "carlos.lopez@ites.com", Domicilio = "Plaza 789", FechaNacimiento = new DateTime(1992, 12, 10), RutaImagen = "/images/example.jpg" },
+            new Persona { Id = 4, NombreCompleto = "Ana Gómez", Email = "ana.gomez@ites.com", Domicilio = "Calle 101", FechaNacimiento = new DateTime(1995, 3, 25), RutaImagen = "/images/example.jpg" },
+            new Persona { Id = 5, NombreCompleto = "Laura Fernández", Email = "laura.fernandez@ites.com", Domicilio = "Avenida 202", FechaNacimiento = new DateTime(1990, 11, 5), RutaImagen = "/images/example.jpg" },
+            new Persona { Id = 6, NombreCompleto = "Diego Ramírez", Email = "diego.ramirez@ites.com", Domicilio = "Plaza 303", FechaNacimiento = new DateTime(1988, 7, 12), RutaImagen = "/images/example.jpg" },
+            new Persona { Id = 7, NombreCompleto = "Sofía Torres", Email = "sofia.torres@ites.com", Domicilio = "Calle 404", FechaNacimiento = new DateTime(1993, 9, 30), RutaImagen = "/images/example.jpg" },
+            new Persona { Id = 8, NombreCompleto = "Miguel Sánchez", Email = "miguel.sanchez@ites.com", Domicilio = "Avenida 505", FechaNacimiento = new DateTime(1991, 1, 8), RutaImagen = "/images/example.jpg" },
+            new Persona { Id = 9, NombreCompleto = "Valentina Ruiz", Email = "valentina.ruiz@ites.com", Domicilio = "Plaza 606", FechaNacimiento = new DateTime(1994, 6, 18), RutaImagen = "/images/example.jpg" },
+            new Persona { Id = 10, NombreCompleto = "Javier Gómez", Email = "javier.gomez@ites.com", Domicilio = "Calle 707", FechaNacimiento = new DateTime(1996, 4, 12), RutaImagen = "/images/example.jpg" }
+        };
+    }
+
+}

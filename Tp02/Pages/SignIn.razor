@@ -1,0 +1,45 @@
+﻿@page "/signin"
+
+<h3>Ingreso al sistema </h3>
+
+<div class="mb-3">
+    <label for="usuario" class="form-label">Usuario</label>
+    <input type="text" class="form-control" id="usuario" @bind="usuario">
+</div>
+<div class="mb-3">
+    <label for="contraseña" class="form-label">Contraseña</label>
+    <input type="password" class="form-control" id="contraseña" @bind="contraseña">
+</div>
+<button class="btn btn-primary" @onclick="Ingresar">Ingresar</button>
+
+
+@if (!string.IsNullOrEmpty(mensaje))
+{
+    <div class="alert alert-info mt-3" role="alert">
+        @mensaje
+    </div>
+}
+
+
+
+@code {
+
+
+
+    private string usuario;
+    private string contraseña;
+    private string mensaje;
+
+    private void Ingresar()
+    {
+        if (usuario == "alumno" && contraseña == "1234")
+        {
+            mensaje = "¡Acceso concedido!";
+        }
+        else
+        {
+            mensaje = "Usuario o contraseña incorrectos.";
+        }
+    }
+
+}
